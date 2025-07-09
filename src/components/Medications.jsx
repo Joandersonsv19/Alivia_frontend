@@ -32,7 +32,7 @@ const Medications = ({ userId }) => {
   const fetchMedications = async () => {
     try {
       setLoading(true)
-      const response = await fetch(`/api/medications?user_id=${userId}`)
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/medications?user=...`)
       const data = await response.json()
       
       if (data.success) {
@@ -56,7 +56,7 @@ const Medications = ({ userId }) => {
     try {
       setSaving(true)
       
-      const response = await fetch('/api/medications', {
+      const response = await fetch('${process.env.REACT_APP_API_BASE_URL}/api/medications', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -386,4 +386,5 @@ const Medications = ({ userId }) => {
 }
 
 export default Medications
+
 

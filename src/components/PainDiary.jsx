@@ -32,7 +32,7 @@ const PainDiary = ({ userId }) => {
   const fetchPainEntries = async () => {
     try {
       setLoading(true)
-      const response = await fetch(`/api/pain-entries?user_id=${userId}&days=30`)
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/pain-entries?user=...`)
       const data = await response.json()
       
       if (data.success) {
@@ -51,7 +51,7 @@ const PainDiary = ({ userId }) => {
     try {
       setSaving(true)
       
-      const response = await fetch('/api/pain-entries', {
+      const response = await fetch('${process.env.REACT_APP_API_BASE_URL}/api/pain-entries', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -279,4 +279,5 @@ const PainDiary = ({ userId }) => {
 }
 
 export default PainDiary
+
 

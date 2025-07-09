@@ -31,7 +31,7 @@ const CaregiverMode = ({ userId }) => {
       setLoading(true)
       
       // Fetch pain trends
-      const painResponse = await fetch(`/api/analytics/pain-trends?user_id=${userId}&days=${timeRange}`)
+      const painResponse = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/analytics/pain-trends`)
       const painResult = await painResponse.json()
       
       if (painResult.success) {
@@ -39,7 +39,7 @@ const CaregiverMode = ({ userId }) => {
       }
       
       // Fetch therapies
-      const therapyResponse = await fetch(`/api/therapies?user_id=${userId}&days=${timeRange}`)
+      const therapyResponse = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/therapies`)
       const therapyResult = await therapyResponse.json()
       
       if (therapyResult.success) {
@@ -47,7 +47,7 @@ const CaregiverMode = ({ userId }) => {
       }
       
       // Fetch medications
-      const medResponse = await fetch(`/api/medications?user_id=${userId}`)
+      const medResponse = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/medications`)
       const medResult = await medResponse.json()
       
       if (medResult.success) {
@@ -445,4 +445,5 @@ const CaregiverMode = ({ userId }) => {
 }
 
 export default CaregiverMode
+
 
