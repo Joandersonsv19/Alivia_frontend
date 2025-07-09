@@ -29,7 +29,7 @@ const Dashboard = ({ userId, onNavigate }) => {
       setLoading(true)
       
       // Fetch recent pain entries
-      const painResponse = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/pain-entries`)
+      const painResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/pain-entries`)
       const painData = await painResponse.json()
       
       if (painData.success) {
@@ -41,7 +41,7 @@ const Dashboard = ({ userId, onNavigate }) => {
         if (todayEntries.length > 0) {
           const latestEntry = todayEntries[0]
           setTodayPain(latestEntry)
-const painResponse = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/pain-entries`)
+const painResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/pain-entries`)
 const painData = await painResponse.json()        }
         
         // Calculate weekly average
@@ -52,7 +52,7 @@ const painData = await painResponse.json()        }
       }
       
       // Fetch medications
-      const medResponse = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/medications`)
+      const medResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/medications`)
       const medData = await medResponse.json()
       
       if (medData.success && medData.data.length > 0) {
@@ -66,7 +66,7 @@ const painData = await painResponse.json()        }
       }
       
       // Fetch recent therapies
-      const therapyResponse = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/therapies`)
+      const therapyResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/therapies`)
       const therapyData = await therapyResponse.json()
       
       if (therapyData.success) {

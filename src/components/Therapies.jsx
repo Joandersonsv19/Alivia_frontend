@@ -93,7 +93,7 @@ const Therapies = ({ userId }) => {
   const fetchTherapies = async () => {
     try {
       setLoading(true)
-      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/therapies?user=...`)
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/therapies?user=...`)
       const data = await response.json()
       
       if (data.success) {
@@ -137,7 +137,7 @@ const Therapies = ({ userId }) => {
 
   const submitFeedback = async () => {
     try {
-      const response = await fetch('${process.env.REACT_APP_API_BASE_URL}/api/therapies', {
+      const response = await fetch('${import.meta.env.VITE_API_URL}/api/therapies', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

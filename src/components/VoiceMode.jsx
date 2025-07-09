@@ -114,7 +114,7 @@ const VoiceMode = ({ userId, onNavigate }) => {
     setConversation(prev => [...prev, userMessage])
     
     try {
-      const response = await fetch('${process.env.REACT_APP_API_BASE_URL}/api/voice-command', {
+      const response = await fetch('${import.meta.env.VITE_API_URL}/api/voice-command', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
